@@ -1,3 +1,4 @@
+
 public class EnrollmentService
 {
     public EnrollmentRecord ProcessRegistration(Student? student, Course? course)
@@ -12,7 +13,7 @@ public class EnrollmentService
 
         // Guard Clause 3
         if (course.Capacity <= 0 || course.EnrolledCount >= course.Capacity)
-            throw new InvalidOperationException("Course is full.");
+          throw new CapacityReachedException(course.Code);
 
         // GPA Classification using Switch Expression
         string standing = student.GPA switch
@@ -33,3 +34,4 @@ public class EnrollmentService
         };
     }
 }
+
